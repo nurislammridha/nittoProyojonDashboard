@@ -1,6 +1,7 @@
 import React from "react";
 import CategoryList from "./modules/category/components/CategoryList";
 import CreateCategoryContainer from "./modules/category/views/CreateCategoryContainer";
+import CreateProductContainer from "./modules/product/views/CreateProductContainer";
 import ProductListContainer from "./modules/product/views/ProductListContainer";
 
 const Dashboard = React.lazy(() => import("./views/dashboard/Dashboard"));
@@ -18,6 +19,11 @@ const routes = [
     path: "/product",
     name: "Product List",
     component: ProductListContainer,
+  },
+  {
+    path: "/product-add",
+    name: "Create Product",
+    component: CreateProductContainer,
   },
 ];
 

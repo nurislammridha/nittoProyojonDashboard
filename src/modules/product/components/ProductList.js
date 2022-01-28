@@ -33,7 +33,7 @@ const ProductList = () => {
         <h4>Product List</h4>
         <a
           className="btn btn-success btn-sm text-light"
-          onClick={() => history.push("/category-add")}
+          onClick={() => history.push("/product-add")}
         >
           Add Product
         </a>
@@ -45,9 +45,9 @@ const ProductList = () => {
               <tr>
                 <th>SL</th>
                 <th>Product Name</th>
-                <th>Category Name</th>
-                <th>Discount Price</th>
-                <th>Product Code</th>
+                <th>Category</th>
+                <th>Discount</th>
+                <th>Code</th>
                 <th>Priority</th>
                 <th>Status</th>
                 <th>Photo</th>
@@ -65,8 +65,18 @@ const ProductList = () => {
                   <td>{item.priority}</td>
                   <td>{item.isActive ? "Active" : "Inactive"}</td>
                   <td>
+                    <img
+                      src={
+                        process.env.REACT_APP_IMG_URL +
+                        item.productImage.substring(2)
+                      }
+                      width="60"
+                      height="40"
+                    />
+                  </td>
+                  <td>
                     <a
-                      className="btn btn-outline-success btn-sm "
+                      className="btn btn-outline-success btn-sm mr-2"
                       // onClick={() => handleDelete(item._id)}
                     >
                       <i className="fa fa-pencil"></i>

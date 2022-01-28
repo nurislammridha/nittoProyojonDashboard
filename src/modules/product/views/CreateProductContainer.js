@@ -1,12 +1,12 @@
 import React from "react";
-import CreateCategory from "../components/CreateCategory";
+import CreateProduct from "../components/CreateProduct";
 
-const CreateCategoryContainer = () => {
+const CreateProductContainer = () => {
   return (
     <>
-      <CreateCategory />
+      <CreateProduct />
     </>
   );
 };
 
-export default CreateCategoryContainer;
+export default CreateProductContainer;
