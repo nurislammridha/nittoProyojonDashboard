@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom";
 import { GetproductList, ProductDelete } from "../_redux/ProductAction";
 const ProductList = () => {
   const history = useHistory();
+
   const productArrList = useSelector((state) => state.productInfo.productList);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -26,7 +27,9 @@ const ProductList = () => {
       ],
     });
   };
-
+  const handleEdit = (data) => {
+    // dispatch(PreUpdateProduct(data))
+  };
   return (
     <>
       <div className="d-flex justify-content-between">
@@ -77,7 +80,7 @@ const ProductList = () => {
                   <td>
                     <a
                       className="btn btn-outline-success btn-sm mr-2"
-                      // onClick={() => handleDelete(item._id)}
+                      onClick={() => handleEdit(item)}
                     >
                       <i className="fa fa-pencil"></i>
                     </a>
