@@ -2,25 +2,23 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
-import { CategoryDelete, GetCategoryList } from "../_redux/CategoryAction";
 import { useHistory } from "react-router-dom";
-const CategoryList = () => {
+import { GetproductList, ProductDelete } from "../_redux/ProductAction";
+const ProductList = () => {
   const history = useHistory();
-  const categoryArrList = useSelector(
-    (state) => state.categoryInfo.categoryList
-  );
+  const productArrList = useSelector((state) => state.productInfo.productList);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(GetCategoryList());
+    dispatch(GetproductList());
   }, []);
   const handleDelete = (id) => {
     confirmAlert({
       title: "Confirm To Delete",
-      message: `Are you sure to delete this category?`,
+      message: `Are you sure to delete this product?`,
       buttons: [
         {
           label: "Yes",
-          onClick: () => dispatch(CategoryDelete(id)),
+          onClick: () => dispatch(ProductDelete(id)),
         },
         {
           label: "No",
@@ -32,32 +30,47 @@ const CategoryList = () => {
   return (
     <>
       <div className="d-flex justify-content-between">
-        <h4>Category List</h4>
+        <h4>Product List</h4>
         <a
           className="btn btn-success btn-sm text-light"
           onClick={() => history.push("/category-add")}
         >
-          Add Category
+          Add Product
         </a>
       </div>
       <div className="mt-3">
-        {categoryArrList != null && categoryArrList.length > 0 && (
+        {productArrList != null && productArrList.length > 0 && (
           <table className="table table-striped">
             <thead>
               <tr>
                 <th>SL</th>
+                <th>Product Name</th>
                 <th>Category Name</th>
+                <th>Discount Price</th>
+                <th>Product Code</th>
+                <th>Priority</th>
                 <th>Status</th>
+                <th>Photo</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              {categoryArrList.map((item, index) => (
+              {productArrList.map((item, index) => (
                 <tr>
                   <td>{index + 1}</td>
+                  <td>{item.productName}</td>
                   <td>{item.categoryName}</td>
+                  <td>{item.discountPrice}</td>
+                  <td>{item.productCode}</td>
+                  <td>{item.priority}</td>
                   <td>{item.isActive ? "Active" : "Inactive"}</td>
                   <td>
+                    <a
+                      className="btn btn-outline-success btn-sm "
+                      // onClick={() => handleDelete(item._id)}
+                    >
+                      <i className="fa fa-pencil"></i>
+                    </a>
                     <a
                       className="btn btn-danger btn-sm"
                       onClick={() => handleDelete(item._id)}
@@ -75,4 +88,4 @@ const CategoryList = () => {
   );
 };
 
-export default CategoryList;
+export default ProductList;

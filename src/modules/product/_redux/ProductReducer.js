@@ -2,9 +2,9 @@ import * as Types from "./Types";
 
 const initialState = {
   isCategory: false,
-  categoryList: null,
+  productList: null,
 };
-const CategoryReducer = (state = initialState, action) => {
+const ProductReducer = (state = initialState, action) => {
   const newState = { ...state };
   switch (action.type) {
     case Types.IS_CREATE_CATEGORY:
@@ -12,14 +12,14 @@ const CategoryReducer = (state = initialState, action) => {
         ...state,
         isCategory: action.payload,
       };
-    case Types.CATEGORY_LIST:
+    case Types.PRODUCT_LIST:
       return {
         ...state,
-        categoryList: action.payload,
+        productList: action.payload,
       };
     default:
       break;
   }
   return newState;
 };
-export default CategoryReducer;
+export default ProductReducer;

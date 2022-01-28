@@ -2,7 +2,7 @@ import * as Types from "./Types";
 import Axios from "axios";
 import { showToast } from "src/utils/ToastHelper";
 //test//est//
-export const SubmitCategory = (data) => (dispatch) => {
+export const Submitproduct = (data) => (dispatch) => {
   if (data.length === 0) {
     showToast("error", "Category shouldn't be empty");
     return 0;
@@ -34,25 +34,24 @@ export const SubmitCategory = (data) => (dispatch) => {
     showToast("error", "Something went wrong");
   }
 };
-export const GetCategoryList = () => (dispatch) => {
-  const url = `${process.env.REACT_APP_API_URL}category`;
+export const GetproductList = () => (dispatch) => {
+  const url = `${process.env.REACT_APP_API_URL}product`;
   try {
     Axios.get(url).then((res) => {
       if (res.data.status) {
-        dispatch({ type: Types.CATEGORY_LIST, payload: res.data.result });
+        dispatch({ type: Types.PRODUCT_LIST, payload: res.data.result });
       }
     });
   } catch (error) {
     showToast("error", "Something went wrong");
   }
 };
-export const CategoryDelete = (id) => (dispatch) => {
-  const url = `${process.env.REACT_APP_API_URL}category/${id}`;
+export const ProductDelete = (id) => (dispatch) => {
+  const url = `${process.env.REACT_APP_API_URL}product/${id}`;
   try {
     Axios.delete(url).then((res) => {
       if (res.data.status) {
         showToast("error", res.data.message);
-        GetCategoryList();
       }
     });
   } catch (error) {

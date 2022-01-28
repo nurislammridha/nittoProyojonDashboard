@@ -14,14 +14,14 @@ const _nav = [
   },
   {
     _tag: "CSidebarNavItem",
-    name: "Campaign",
-    to: "/campaign",
+    name: "Category",
+    to: "/category",
     icon: <CIcon name="cil-speedometer" customClasses="c-sidebar-nav-icon" />,
   },
   {
     _tag: "CSidebarNavItem",
-    name: "Brands & Agencies",
-    to: "/brands-and-agencies",
+    name: "Propduct",
+    to: "/product",
     icon: <CIcon name="cil-speedometer" customClasses="c-sidebar-nav-icon" />,
   },
   {
