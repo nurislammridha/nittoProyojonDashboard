@@ -1,13 +1,23 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import { useHistory } from "react-router-dom";
-import { GetproductList, ProductDelete } from "../_redux/ProductAction";
+import {
+  getCategoryOption,
+  GetProductByCategory,
+  GetproductList,
+  ProductDelete,
+} from "../_redux/ProductAction";
+import Select from "react-select";
+import { GetCategoryList } from "src/modules/category/_redux/CategoryAction";
 const ProductList = () => {
   const history = useHistory();
-
+  const [category, setCategory] = useState("");
   const productArrList = useSelector((state) => state.productInfo.productList);
+  const categoryArrList = useSelector(
+    (state) => state.categoryInfo.categoryList
+  );
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(GetproductList());
@@ -30,16 +40,40 @@ const ProductList = () => {
   const handleEdit = (data) => {
     // dispatch(PreUpdateProduct(data))
   };
+  useEffect(() => {
+    if (category && category.label.length > 0) {
+      dispatch(GetProductByCategory(category.value));
+    }
+  }, [category]);
+  useEffect(() => {
+    dispatch(GetCategoryList());
+  }, []);
+
   return (
     <>
-      <div className="d-flex justify-content-between">
-        <h4>Product List</h4>
-        <a
-          className="btn btn-success btn-sm text-light"
-          onClick={() => history.push("/product-add")}
-        >
-          Add Product
-        </a>
+      <div className="row alert alert-secondary">
+        <div className="col-sm-2">
+          <h6>Product List</h6>
+        </div>
+        <div className="col-sm-2">
+          <h6>Select Category</h6>
+        </div>
+        <div className="col-sm-2">
+          <Select
+            options={getCategoryOption(categoryArrList)}
+            value={{ label: category.label }}
+            onChange={(e) => setCategory(e)}
+          />
+        </div>
+        <div className="col-sm-4"></div>
+        <div className="col-sm-2">
+          <a
+            className="btn btn-success btn-sm text-light"
+            onClick={() => history.push("/product-add")}
+          >
+            Add Product
+          </a>
+        </div>
       </div>
       <div className="mt-3">
         {productArrList != null && productArrList.length > 0 && (

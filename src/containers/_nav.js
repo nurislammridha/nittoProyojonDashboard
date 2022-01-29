@@ -26,8 +26,8 @@ const _nav = [
   },
   {
     _tag: "CSidebarNavItem",
-    name: "Drivers",
-    to: "/drivers",
+    name: "User",
+    to: "/user",
     icon: "cil-star",
   },
   // {

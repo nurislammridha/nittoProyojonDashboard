@@ -89,6 +89,18 @@ export const GetproductList = () => (dispatch) => {
     showToast("error", "Something went wrong");
   }
 };
+export const GetProductByCategory = (id) => (dispatch) => {
+  const url = `${process.env.REACT_APP_API_URL}product/${id}`;
+  try {
+    Axios.get(url).then((res) => {
+      if (res.data.status) {
+        dispatch({ type: Types.PRODUCT_LIST, payload: res.data.result });
+      }
+    });
+  } catch (error) {
+    showToast("error", "Something went wrong");
+  }
+};
 export const PreUpdateProduct = (data) => (dispatch) => {
   dispatch({ type: Types.PRE_UPDATE_PRODUCT, payload: data });
 };
