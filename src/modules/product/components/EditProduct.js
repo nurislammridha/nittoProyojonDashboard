@@ -1,18 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import Select from "react-select";
 import { GetCategoryList } from "src/modules/category/_redux/CategoryAction";
 import {
+  FalseUpdate,
   getCategoryOption,
   GetProductInput,
   SubmitProduct,
+  UpdateProduct,
 } from "../_redux/ProductAction";
 const EditProduct = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const categoryArrList = useSelector(
     (state) => state.categoryInfo.categoryList
   );
   const productInput = useSelector((state) => state.productInfo.productInput);
+  const afterUpdate = useSelector((state) => state.productInfo.afterUpdate);
   const isCreateProduct = useSelector(
     (state) => state.productInfo.isCreateProduct
   );
@@ -20,7 +25,7 @@ const EditProduct = () => {
   // const isCategory = useSelector((state) => state.categoryInfo.isCategory);
   // const dispatch = useDispatch();
   const handleSubmit = () => {
-    dispatch(SubmitProduct(productInput));
+    dispatch(UpdateProduct(productInput));
   };
   const handleChangeInput = (name, value, e) => {
     dispatch(GetProductInput(name, value, e));
@@ -33,7 +38,13 @@ const EditProduct = () => {
     { label: "High", value: "High" },
     { label: "Low", value: "Low" },
   ];
-  console.log("productInput", productInput);
+  useEffect(() => {
+    if (afterUpdate) {
+      history.push("/product");
+      dispatch(FalseUpdate());
+    }
+  }, [afterUpdate]);
+
   return (
     <>
       <h6 className="alert alert-secondary text-center">UPDATE PRODUCT</h6>

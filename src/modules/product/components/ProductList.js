@@ -7,6 +7,7 @@ import {
   getCategoryOption,
   GetProductByCategory,
   GetproductList,
+  PreUpdateProduct,
   ProductDelete,
 } from "../_redux/ProductAction";
 import Select from "react-select";
@@ -38,7 +39,8 @@ const ProductList = () => {
     });
   };
   const handleEdit = (data) => {
-    // dispatch(PreUpdateProduct(data))
+    dispatch(PreUpdateProduct(data));
+    history.push("/product-update");
   };
   useEffect(() => {
     if (category && category.label.length > 0) {
@@ -48,7 +50,6 @@ const ProductList = () => {
   useEffect(() => {
     dispatch(GetCategoryList());
   }, []);
-
   return (
     <>
       <div className="row alert alert-secondary">

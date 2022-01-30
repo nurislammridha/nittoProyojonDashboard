@@ -14,6 +14,7 @@ const initialState = {
     imagePreviewUrl: "",
   },
   isCreateProduct: false,
+  afterUpdate: false,
 };
 const ProductReducer = (state = initialState, action) => {
   const newState = { ...state };
@@ -40,6 +41,40 @@ const ProductReducer = (state = initialState, action) => {
       return {
         ...state,
         productInput: productInputAfter,
+      };
+    case Types.AFTER_UPDATE_PRODUCT:
+      return {
+        ...state,
+        afterUpdate: action.payload,
+      };
+    case Types.PRE_UPDATE_PRODUCT:
+      console.log("action.payload", action.payload);
+      const {
+        _id,
+        productName,
+        categoryId,
+        categoryName,
+        productMRP,
+        discountPrice,
+        productCode,
+        priority,
+        productImage,
+      } = action.payload;
+      let productEdit = initialState.productInput;
+      productEdit.productName = productName;
+      productEdit.categoryId = categoryId;
+      productEdit.categoryName = categoryName;
+      productEdit.productMRP = productMRP;
+      productEdit.discountPrice = discountPrice;
+      productEdit.productCode = productCode;
+      productEdit.priority = priority;
+      productEdit.imagePreviewUrl =
+        process.env.REACT_APP_IMG_URL + productImage.substring(2);
+      productEdit.id = _id;
+
+      return {
+        ...state,
+        productInput: productEdit,
       };
     default:
       break;
