@@ -30,6 +30,12 @@ const _nav = [
     to: "/user",
     icon: "cil-star",
   },
+  {
+    _tag: "CSidebarNavItem",
+    name: "Order Accept",
+    to: "/order-accept",
+    icon: "cil-star",
+  },
   // {
   //   _tag: "CSidebarNavItem",
   //   name: "Vendor",

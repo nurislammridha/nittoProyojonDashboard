@@ -1,6 +1,7 @@
 import React from "react";
 import CategoryList from "./modules/category/components/CategoryList";
 import CreateCategoryContainer from "./modules/category/views/CreateCategoryContainer";
+import OrderAcceptContainer from "./modules/order/views/OrderAcceptContainer";
 import CreateProductContainer from "./modules/product/views/CreateProductContainer";
 import EditProductContainer from "./modules/product/views/EditProductContainer";
 import ProductListContainer from "./modules/product/views/ProductListContainer";
@@ -36,6 +37,11 @@ const routes = [
     path: "/user",
     name: "User",
     component: UserListContainer,
+  },
+  {
+    path: "/order-accept",
+    name: "Order Accept",
+    component: OrderAcceptContainer,
   },
 ];
 

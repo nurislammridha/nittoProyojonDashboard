@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 import AuthReducer from "src/modules/auth/_redux/AuthReducer";
 import CategoryReducer from "src/modules/category/_redux/CategoryReducer";
+import OrderReducer from "src/modules/order/_redux/OrderReducer";
 import ProductReducer from "src/modules/product/_redux/ProductReducer";
 import UserReducer from "src/modules/user/_redux/UserReducer";
 
@@ -10,6 +11,7 @@ const rootReducer = combineReducers({
   categoryInfo: CategoryReducer,
   productInfo: ProductReducer,
   userInfo: UserReducer,
+  orderInfo: OrderReducer,
 });
 
 export default rootReducer;
