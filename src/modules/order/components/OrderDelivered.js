@@ -10,7 +10,7 @@ import {
 } from "../_redux/OrderAction";
 import OrderDetails from "./OrderDetails";
 
-const OrderAccept = () => {
+const OrderDelivered = () => {
   const dispatch = useDispatch();
   const [orderDate, setOrderDate] = useState(new Date());
   const [modalShow, setModalShow] = useState(false);
@@ -29,29 +29,27 @@ const OrderAccept = () => {
   ));
 
   useEffect(() => {
-    dispatch(GetOrderList(orderDate, "isAccepted"));
+    dispatch(GetOrderList(orderDate, "isDelivered"));
   }, [orderDate]);
   useEffect(() => {
     if (afterUpdateStatus) {
-      console.log("yes");
-      dispatch(GetOrderList(orderDate, "isAccepted"));
+      dispatch(GetOrderList(orderDate, "isDelivered"));
       dispatch(falseStatusUpdate());
     }
   }, [afterUpdateStatus]);
   const handleUpdate = (id) => {
     setLoader(id);
     const data = {
-      isAccepted: true,
-      isAcceptedDate: moment(new Date()).format("lll"),
+      isDelivered: true,
+      isDeliveredDate: moment(new Date()).format("lll"),
     };
     dispatch(statusUpdate(data, id));
   };
-  console.log("afterUpdateStatus", afterUpdateStatus);
   return (
     <>
       <div className="row bg-light py-2">
         <div className="col-sm-2">
-          <h6>Accept Order</h6>
+          <h6>Delivered Order</h6>
         </div>
         <div className="col-sm-2">
           <h6>Select Date</h6>
@@ -95,7 +93,7 @@ const OrderAccept = () => {
                 <th>Phone</th>
                 <th>Village</th>
                 <th>Village Area</th>
-                <th>Accept Order</th>
+                <th>Delivered Order</th>
                 <th>View</th>
               </tr>
             </thead>
@@ -122,7 +120,7 @@ const OrderAccept = () => {
                         className="btn btn-success btn-sm text-light"
                         onClick={() => handleUpdate(item._id)}
                       >
-                        Accept
+                        Delivered
                       </a>
                     )}
                   </td>
@@ -152,4 +150,4 @@ const OrderAccept = () => {
   );
 };
 
-export default OrderAccept;
+export default OrderDelivered;

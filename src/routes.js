@@ -2,6 +2,9 @@ import React from "react";
 import CategoryList from "./modules/category/components/CategoryList";
 import CreateCategoryContainer from "./modules/category/views/CreateCategoryContainer";
 import OrderAcceptContainer from "./modules/order/views/OrderAcceptContainer";
+import OrderDeliveredContainer from "./modules/order/views/OrderDeliveredContainer";
+import OrderDeliveringContainer from "./modules/order/views/OrderDeliveringContainer";
+import OrderProcessingContainer from "./modules/order/views/OrderProcessingContainer";
 import CreateProductContainer from "./modules/product/views/CreateProductContainer";
 import EditProductContainer from "./modules/product/views/EditProductContainer";
 import ProductListContainer from "./modules/product/views/ProductListContainer";
@@ -42,6 +45,21 @@ const routes = [
     path: "/order-accept",
     name: "Order Accept",
     component: OrderAcceptContainer,
+  },
+  {
+    path: "/order-processing",
+    name: "Order Processing",
+    component: OrderProcessingContainer,
+  },
+  {
+    path: "/order-delivering",
+    name: "Order Delivering",
+    component: OrderDeliveringContainer,
+  },
+  {
+    path: "/order-delivered",
+    name: "Order Delivered",
+    component: OrderDeliveredContainer,
   },
 ];
 

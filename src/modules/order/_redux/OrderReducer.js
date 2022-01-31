@@ -22,7 +22,7 @@ const OrderReducer = (state = initialState, action) => {
     case Types.AFTER_UPDATE_STATUS:
       return {
         ...state,
-        isOrderList: action.payload,
+        afterUpdateStatus: action.payload,
       };
     case Types.IS_UPDATING:
       return {
