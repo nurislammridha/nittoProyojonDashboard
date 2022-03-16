@@ -25,14 +25,23 @@ export const SubmitProduct = (data) => (dispatch) => {
   if (data.productName.length === 0) {
     showToast("error", "Product name shouldn't be empty");
     return 0;
+  } else if (data.productNameBn.length === 0) {
+    showToast("error", "Product name bangla shouldn't be empty");
+    return 0;
   } else if (data.categoryName.length === 0) {
     showToast("error", "Please Select a category");
     return 0;
   } else if (data.productMRP.length === 0) {
     showToast("error", "Product MRP shouldn't be empty");
     return 0;
+  } else if (data.productMRPBn.length === 0) {
+    showToast("error", "Product MRP bangla shouldn't be empty");
+    return 0;
   } else if (data.discountPrice.length === 0) {
     showToast("error", "Discount price shouldn't be empty");
+    return 0;
+  } else if (data.discountPriceBn.length === 0) {
+    showToast("error", "Discount price bangla shouldn't be empty");
     return 0;
   } else if (data.productCode.length === 0) {
     showToast("error", "Product code shouldn't be empty");
@@ -45,11 +54,15 @@ export const SubmitProduct = (data) => (dispatch) => {
   dispatch({ type: Types.IS_CREATE_PRODUCT, payload: true });
   const formData = new FormData();
   formData.append("product_name", data.productName);
+  formData.append("product_name_bn", data.productNameBn);
   formData.append("category_id", data.categoryId);
   formData.append("category_name", data.categoryName);
+  formData.append("category_name_bn", data.categoryNameBn);
   formData.append("product_mrp", data.productMRP);
+  formData.append("product_mrp_bn", data.productMRPBn);
   formData.append("is_discount", true);
   formData.append("discount_price", data.discountPrice);
+  formData.append("discount_price_bn", data.discountPriceBn);
   formData.append("is_active", true);
   formData.append("priority", data.priority);
   formData.append("product_image", data.productImage);
@@ -81,14 +94,23 @@ export const UpdateProduct = (data) => (dispatch) => {
   if (data.productName.length === 0) {
     showToast("error", "Product name shouldn't be empty");
     return 0;
+  } else if (data.productNameBn.length === 0) {
+    showToast("error", "Product name bangla shouldn't be empty");
+    return 0;
   } else if (data.categoryName.length === 0) {
     showToast("error", "Please Select a category");
     return 0;
   } else if (data.productMRP.length === 0) {
     showToast("error", "Product MRP shouldn't be empty");
     return 0;
+  } else if (data.productMRPBn.length === 0) {
+    showToast("error", "Product MRP bangla shouldn't be empty");
+    return 0;
   } else if (data.discountPrice.length === 0) {
     showToast("error", "Discount price shouldn't be empty");
+    return 0;
+  } else if (data.discountPriceBn.length === 0) {
+    showToast("error", "Discount price bangla shouldn't be empty");
     return 0;
   } else if (data.productCode.length === 0) {
     showToast("error", "Product code shouldn't be empty");
@@ -102,11 +124,15 @@ export const UpdateProduct = (data) => (dispatch) => {
   dispatch({ type: Types.IS_CREATE_PRODUCT, payload: true });
   const formData = new FormData();
   formData.append("product_name", data.productName);
+  formData.append("product_name_bn", data.productNameBn);
   formData.append("category_id", data.categoryId);
   formData.append("category_name", data.categoryName);
+  formData.append("category_name_bn", data.categoryNameBn);
   formData.append("product_mrp", data.productMRP);
+  formData.append("product_mrp_bn", data.productMRPBn);
   formData.append("is_discount", true);
   formData.append("discount_price", data.discountPrice);
+  formData.append("discount_price_bn", data.discountPriceBn);
   formData.append("is_active", true);
   formData.append("priority", data.priority);
   if (data.productImage.length === undefined) {
@@ -153,7 +179,7 @@ export const GetproductList = () => (dispatch) => {
   }
 };
 export const GetProductByCategory = (id) => (dispatch) => {
-  const url = `${process.env.REACT_APP_API_URL}product/${id}`;
+  const url = `${process.env.REACT_APP_API_URL}product/home/${id}`;
   try {
     Axios.get(url).then((res) => {
       if (res.data.status) {
@@ -187,6 +213,7 @@ export const getCategoryOption = (data) => {
       const obj = {
         label: item.categoryName,
         value: item._id,
+        categoryNameBn: item.categoryNameBn,
       };
       arr.push(obj);
     });

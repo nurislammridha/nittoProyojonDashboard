@@ -69,6 +69,17 @@ const EditProduct = () => {
             />
           </div>
           <div className="mt-2">
+            <h6>Discount Price</h6>
+            <input
+              className="form-control"
+              type="number"
+              value={productInput.discountPrice}
+              onChange={(e) =>
+                handleChangeInput("discountPrice", e.target.value)
+              }
+            />
+          </div>
+          <div className="mt-2">
             <h6>Product Code</h6>
             <input
               className="form-control"
@@ -80,7 +91,6 @@ const EditProduct = () => {
           <div className="mt-2">
             <h6>Product Image</h6>
             <input
-              type="file"
               type="file"
               className="d-none"
               accept="image/*"
@@ -101,6 +111,39 @@ const EditProduct = () => {
         </div>
         <div className="col-sm-6">
           <div>
+            <h6>Product Name Bangla</h6>
+            <input
+              className="form-control"
+              type="text"
+              value={productInput.productNameBn}
+              onChange={(e) =>
+                handleChangeInput("productNameBn", e.target.value)
+              }
+            />
+          </div>
+          <div className="mt-2">
+            <h6>Product MRP bangla</h6>
+            <input
+              className="form-control"
+              type="number"
+              value={productInput.productMRPBn}
+              onChange={(e) =>
+                handleChangeInput("productMRPBn", e.target.value)
+              }
+            />
+          </div>
+          <div className="mt-2">
+            <h6>Discount Price Bangla</h6>
+            <input
+              className="form-control"
+              type="number"
+              value={productInput.discountPriceBn}
+              onChange={(e) =>
+                handleChangeInput("discountPriceBn", e.target.value)
+              }
+            />
+          </div>
+          <div className="mt-2">
             <h6>Select Category</h6>
             <Select
               options={getCategoryOption(categoryArrList)}
@@ -108,20 +151,11 @@ const EditProduct = () => {
               onChange={(e) => {
                 handleChangeInput("categoryName", e.label);
                 handleChangeInput("categoryId", e.value);
+                handleChangeInput("categoryNameBn", e.categoryNameBn);
               }}
             />
           </div>
-          <div className="mt-2">
-            <h6>Discount Price</h6>
-            <input
-              className="form-control"
-              type="number"
-              value={productInput.discountPrice}
-              onChange={(e) =>
-                handleChangeInput("discountPrice", e.target.value)
-              }
-            />
-          </div>
+
           <div className="mt-2">
             <h6>Priority</h6>
             <Select

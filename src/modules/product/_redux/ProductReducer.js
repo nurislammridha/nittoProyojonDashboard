@@ -4,10 +4,14 @@ const initialState = {
   productList: null,
   productInput: {
     productName: "",
+    productNameBn: "",
     categoryId: "",
     categoryName: "",
+    categoryNameBn: "",
     productMRP: "",
+    productMRPBn: "",
     discountPrice: "",
+    discountPriceBn: "",
     productCode: "",
     productImage: "",
     priority: "Low",
@@ -52,20 +56,28 @@ const ProductReducer = (state = initialState, action) => {
       const {
         _id,
         productName,
+        productNameBn,
         categoryId,
         categoryName,
+        categoryNameBn,
         productMRP,
+        productMRPBn,
         discountPrice,
+        discountPriceBn,
         productCode,
         priority,
         productImage,
       } = action.payload;
       let productEdit = initialState.productInput;
       productEdit.productName = productName;
+      productEdit.productNameBn = productNameBn;
       productEdit.categoryId = categoryId;
       productEdit.categoryName = categoryName;
+      productEdit.categoryNameBn = categoryNameBn;
       productEdit.productMRP = productMRP;
+      productEdit.productMRPBn = productMRPBn;
       productEdit.discountPrice = discountPrice;
+      productEdit.discountPriceBn = discountPriceBn;
       productEdit.productCode = productCode;
       productEdit.priority = priority;
       productEdit.imagePreviewUrl =

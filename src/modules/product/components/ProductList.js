@@ -82,7 +82,8 @@ const ProductList = () => {
             <thead>
               <tr>
                 <th>SL</th>
-                <th>Product Name</th>
+                <th>Name</th>
+                <th>Bangla Name</th>
                 <th>Category</th>
                 <th>Discount</th>
                 <th>Code</th>
@@ -97,6 +98,7 @@ const ProductList = () => {
                 <tr>
                   <td>{index + 1}</td>
                   <td>{item.productName}</td>
+                  <td>{item.productNameBn}</td>
                   <td>{item.categoryName}</td>
                   <td>{item.discountPrice}</td>
                   <td>{item.productCode}</td>

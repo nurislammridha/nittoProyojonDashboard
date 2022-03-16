@@ -47,6 +47,7 @@ const CategoryList = () => {
               <tr>
                 <th>SL</th>
                 <th>Category Name</th>
+                <th>Category Bangla</th>
                 <th>Status</th>
                 <th>Action</th>
               </tr>
@@ -56,6 +57,7 @@ const CategoryList = () => {
                 <tr>
                   <td>{index + 1}</td>
                   <td>{item.categoryName}</td>
+                  <td>{item.categoryNameBn}</td>
                   <td>{item.isActive ? "Active" : "Inactive"}</td>
                   <td>
                     <a

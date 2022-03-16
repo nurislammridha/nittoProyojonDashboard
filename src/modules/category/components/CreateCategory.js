@@ -4,23 +4,35 @@ import { SubmitCategory } from "../_redux/CategoryAction";
 
 const CreateCategory = () => {
   const [category, setCategory] = useState("");
+  const [categoryBn, setCategoryBn] = useState("");
   const isCategory = useSelector((state) => state.categoryInfo.isCategory);
   const dispatch = useDispatch();
   const handleSubmit = () => {
-    dispatch(SubmitCategory(category));
+    dispatch(SubmitCategory(category, categoryBn));
   };
   return (
     <>
       <div className="row">
         <div className="col-sm-2"></div>
         <div className="col-sm-8">
-          <h6 className="mb-3">Category Name</h6>
-          <input
-            className="form-control"
-            value={category}
-            placeholder="enter category name"
-            onChange={(e) => setCategory(e.target.value)}
-          />
+          <div>
+            <h6 className="mb-3">Category Name</h6>
+            <input
+              className="form-control"
+              value={category}
+              placeholder="enter category name"
+              onChange={(e) => setCategory(e.target.value)}
+            />
+          </div>
+          <div className="mt-3">
+            <h6 className="mb-3">Category Name Bangla</h6>
+            <input
+              className="form-control"
+              value={categoryBn}
+              placeholder="enter category name in bangla"
+              onChange={(e) => setCategoryBn(e.target.value)}
+            />
+          </div>
           {isCategory ? (
             <a className="btn btn-success btn-sm mt-3 text-light">
               {" "}
