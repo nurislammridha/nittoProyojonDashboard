@@ -179,7 +179,7 @@ export const GetproductList = () => (dispatch) => {
   }
 };
 export const GetProductByCategory = (id) => (dispatch) => {
-  const url = `${process.env.REACT_APP_API_URL}product/home/${id}`;
+  const url = `${process.env.REACT_APP_API_URL}product/${id}`;
   try {
     Axios.get(url).then((res) => {
       if (res.data.status) {

@@ -72,7 +72,7 @@ const CreateProduct = () => {
             <h6>Product Code</h6>
             <input
               className="form-control"
-              type="number"
+              type="text"
               value={productInput.productCode}
               onChange={(e) => handleChangeInput("productCode", e.target.value)}
             />
@@ -114,7 +114,7 @@ const CreateProduct = () => {
             <h6>Product MRP Bangla</h6>
             <input
               className="form-control"
-              type="number"
+              type="text"
               value={productInput.productMRPBn}
               onChange={(e) =>
                 handleChangeInput("productMRPBn", e.target.value)
@@ -125,7 +125,7 @@ const CreateProduct = () => {
             <h6>Discount Price Bangla</h6>
             <input
               className="form-control"
-              type="number"
+              type="text"
               value={productInput.discountPriceBn}
               onChange={(e) =>
                 handleChangeInput("discountPriceBn", e.target.value)

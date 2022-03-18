@@ -21,7 +21,7 @@ const ProductList = () => {
   );
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(GetproductList());
+    // dispatch(GetproductList());
   }, []);
   const handleDelete = (id) => {
     confirmAlert({
