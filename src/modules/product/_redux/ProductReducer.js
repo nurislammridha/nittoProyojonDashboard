@@ -16,6 +16,7 @@ const initialState = {
     productImage: "",
     priority: "Low",
     imagePreviewUrl: "",
+    isActive: "true",
   },
   isCreateProduct: false,
   afterUpdate: false,
@@ -67,6 +68,7 @@ const ProductReducer = (state = initialState, action) => {
         productCode,
         priority,
         productImage,
+        isActive,
       } = action.payload;
       let productEdit = initialState.productInput;
       productEdit.productName = productName;
@@ -83,6 +85,7 @@ const ProductReducer = (state = initialState, action) => {
       productEdit.imagePreviewUrl =
         process.env.REACT_APP_IMG_URL + productImage.substring(2);
       productEdit.id = _id;
+      productEdit.isActive = isActive;
 
       return {
         ...state,

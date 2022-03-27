@@ -38,6 +38,10 @@ const EditProduct = () => {
     { label: "High", value: "High" },
     { label: "Low", value: "Low" },
   ];
+  const pub = [
+    { label: "ON", value: "true" },
+    { label: "OFF", value: "false" },
+  ];
   useEffect(() => {
     if (afterUpdate) {
       history.push("/product");
@@ -163,6 +167,16 @@ const EditProduct = () => {
               value={{ label: productInput.priority }}
               onChange={(e) => {
                 handleChangeInput("priority", e.label);
+              }}
+            />
+          </div>
+          <div className="mt-2">
+            <h6>Publish</h6>
+            <Select
+              options={pub}
+              value={{ label: productInput.isActive === "true" ? "ON" : "OFF" }}
+              onChange={(e) => {
+                handleChangeInput("isActive", e.value);
               }}
             />
           </div>

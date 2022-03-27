@@ -133,7 +133,7 @@ export const UpdateProduct = (data) => (dispatch) => {
   formData.append("is_discount", true);
   formData.append("discount_price", data.discountPrice);
   formData.append("discount_price_bn", data.discountPriceBn);
-  formData.append("is_active", true);
+  formData.append("is_active", data.isActive);
   formData.append("priority", data.priority);
   if (data.productImage.length === undefined) {
     formData.append("product_image", data.productImage);
@@ -179,7 +179,7 @@ export const GetproductList = () => (dispatch) => {
   }
 };
 export const GetProductByCategory = (id) => (dispatch) => {
-  const url = `${process.env.REACT_APP_API_URL}product/${id}`;
+  const url = `${process.env.REACT_APP_API_URL}product/dashboard/${id}`;
   try {
     Axios.get(url).then((res) => {
       if (res.data.status) {

@@ -103,7 +103,7 @@ const ProductList = () => {
                   <td>{item.discountPrice}</td>
                   <td>{item.productCode}</td>
                   <td>{item.priority}</td>
-                  <td>{item.isActive ? "Active" : "Inactive"}</td>
+                  <td>{item.isActive === "true" ? "ON" : "OFF"}</td>
                   <td>
                     <img
                       src={
