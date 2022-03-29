@@ -12,7 +12,7 @@ const initialState = {
     productMRPBn: "",
     discountPrice: "",
     discountPriceBn: "",
-    productCode: "",
+    productCode: "X100",
     productImage: "",
     priority: "Low",
     imagePreviewUrl: "",
