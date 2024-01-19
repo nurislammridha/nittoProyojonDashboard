@@ -6,9 +6,9 @@ const TheFooter = () => {
     <CFooter fixed={false}>
       <div>
         <a href="https://coreui.io" target="_blank" rel="noopener noreferrer">
-          Carads
+          Panahar
         </a>
-        <span className="ml-1">&copy; 2020 creativeLabs.</span>
+        <span className="ml-1">&copy; 2024 panahar.</span>
       </div>
       <div className="mfs-auto">
         <span className="mr-1">Powered by</span>
@@ -17,7 +17,7 @@ const TheFooter = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Carads for React
+          Panahar for React
         </a>
       </div>
     </CFooter>
